@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">PJ</th>
+        <th scope="col">PG</th>
+        <th scope="col">PE</th>
+        <th scope="col">PP</th>
+        <th scope="col">PTS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of TABLAS.ARG; let i = index"
+      (click)= "pasarValor(n.cod)">
+       <!-- <ng-container *ngIf="ocultarFila(n, num)" > -->
+          <th scope="row">{{i}}</th>
+          <td>{{n.nombre}}</td>
+          <td>{{n.pj}}</td>
+          <td>{{n.pg}}</td>
+          <td>{{n.pe}}</td>
+          <td>{{n.pp}}</td>
+          <td>{{n.pts}}</td>
+        <!-- </ng-container>  -->
+      </tr>
+    </tbody>
+  </table>
+
+  <app-cmp-equipo-tabla-detalle [detalle] = "detalle"></app-cmp-equipo-tabla-detalle>

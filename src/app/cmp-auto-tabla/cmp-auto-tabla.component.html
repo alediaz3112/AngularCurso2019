@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">fecha</th>
+      <th scope="col">velocidad</th>
+      <th scope="col">patente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let n of datos; let i = index"
+     [ngClass]="obtenerColorVelocidad(n, 81,texto)"
+     (click)= "pasarValor(n.detalles)">
+     
+     <ng-container *ngIf="ocultarFila(n, num)" >
+        <th scope="row">{{i}}</th>
+        <td>{{n.fecha | date:'mediumDate'}}</td>
+        <td>{{n.velocidad | myVeloc}}</td>
+        <td>{{n.patente}}</td>
+      </ng-container> 
+    </tr>
+  </tbody>
+
+</table>
+
+<br/>
+<input type="text" [(ngModel)]="num">
+<br/>
+{{num}}
+<br/>
+<app-cmp-auto-tabla-detalle [detalle] = "detalle"></app-cmp-auto-tabla-detalle>
